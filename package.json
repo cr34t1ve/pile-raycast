@@ -3,8 +3,8 @@
   "name": "pile-raycast",
   "title": "pile-raycast",
   "description": "A raycast extension for the Pile journaling app",
-  "icon": "command-icon.png",
-  "author": "cr34t1ve",
+  "icon": "logo-v2.png",
+  "author": "desmondsofua",
   "categories": [
     "Productivity",
     "Data"
@@ -21,12 +21,17 @@
   "dependencies": {
     "@raycast/api": "^1.61.2",
     "gray-matter": "^4.0.3",
+    "rehype-parse": "^9.0.0",
+    "rehype-remark": "^10.0.0",
+    "remark": "^15.0.1",
+    "remove-markdown": "^0.5.0",
     "snarkdown": "^2.0.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.6",
     "@types/node": "18.18.4",
     "@types/react": "18.2.27",
+    "@types/remove-markdown": "^0.3.4",
     "eslint": "^8.51.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
@@ -37,5 +42,6 @@
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
     "publish": "npx @raycast/api@latest publish"
-  }
+  },
+  "version": "1.0.0"
 }
