@@ -111,7 +111,7 @@ export default function Command() {
     const tempData = await data;
     const parsedData = JSON.parse(tempData.toString());
 
-    // check localstorage for last saved pile and load that else load first pile
+    // TODO: check localstorage/cache for last saved pile and load that else load first pile
 
     setState((previous) => ({ ...previous, filter: parsedData[0] || {}, currentPile: parsedData[0] || {} }));
     pilesRef.current = parsedData;
@@ -217,12 +217,13 @@ export default function Command() {
       isLoading={state.isLoading}
       searchText={state.searchText}
       filtering
+      searchBarPlaceholder="Search through your posts"
       onSearchTextChange={(newValue) => {
         setState((previous) => ({ ...previous, searchText: newValue }));
       }}
       searchBarAccessory={
         <List.Dropdown
-          tooltip="Select Piles"
+          tooltip="Select Pile"
           value={state.filter?.path || "Select a pile"}
           onChange={(newValue) => {
             const pile = pilesRef?.current?.find((pile: PileSettings) => pile.path === newValue);
@@ -250,7 +251,7 @@ export default function Command() {
           title={post?.data?.title || ""}
           actions={
             <ActionPanel>
-              <Action.Push title="Open Post" target={<Detail markdown={post?.excerpt || ""} />} />
+              <Action.Push title="Open Post" icon={Icon.Sidebar} target={<Detail markdown={post?.excerpt || ""} />} />
               <ActionPanel.Section>
                 <CreatePileAction onCreate={handleCreate} />
                 <CreatePostAction onCreate={handleCreatePost} />

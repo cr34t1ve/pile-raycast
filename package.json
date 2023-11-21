@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "pile-raycast",
-  "title": "Pile-Raycast",
-  "description": "A raycast extension for the Pile journaling app",
+  "name": "mound-for-pile",
+  "title": "Mound",
+  "description": "A Raycast extension for the Pile journaling app",
   "icon": "logo-v2.png",
   "author": "desmondsofua",
   "categories": [
@@ -14,7 +14,8 @@
     {
       "name": "index",
       "title": "Create Post",
-      "description": "Template for creating a post",
+      "subtitle": "Pile",
+      "description": "Creates a post in Pile journaling application",
       "mode": "view"
     }
   ],
@@ -43,5 +44,14 @@
     "lint": "ray lint",
     "publish": "npx @raycast/api@latest publish"
   },
-  "version": "1.0.5"
+  "version": "1.0.5",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cr34t1ve/pile-raycast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cr34t1ve/pile-raycast/issues"
+  },
+  "homepage": "https://github.com/cr34t1ve/pile-raycast#readme"
 }
