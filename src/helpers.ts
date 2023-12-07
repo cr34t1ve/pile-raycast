@@ -1,4 +1,6 @@
-export function getFilePathForNewPost(basePath: string, timestamp: Date = new Date()) {
+import { PostHightlightsI } from "./utils/types";
+
+export function getFilePathForNewPost(basePath: string) {
   const date = new Date();
   const month = date.toLocaleString("default", { month: "short" });
   const year = date.getFullYear().toString();
@@ -6,8 +8,8 @@ export function getFilePathForNewPost(basePath: string, timestamp: Date = new Da
   return `${basePath}/${year}/${month}/${fileName}`;
 }
 
-export function getFormattedTimestamp() {
-  const currentDate = new Date();
+export function getFormattedTimestamp(date: Date = new Date()) {
+  const currentDate = date;
 
   const year = String(currentDate.getFullYear()).slice(-2);
   const month = String(currentDate.getMonth() + 1).padStart(2, "0");
@@ -25,4 +27,21 @@ export function getRelativeFilePath() {
   const year = date.getFullYear().toString();
   const fileName = getFormattedTimestamp();
   return `${year}/${month}/${fileName}`;
+}
+
+// Pile does not currently set the highlight color in the post data, so we need to
+// calculate it based on the highlight type.
+export function renderHighlightColor(highlight: string) {
+  switch (highlight) {
+    case PostHightlightsI.DoLater:
+      return "#4de64d";
+    case PostHightlightsI.Highlight:
+      return "#FF703A";
+    case PostHightlightsI.NewIdea:
+      return "#017AFF";
+    case PostHightlightsI.None:
+      return "white";
+    default:
+      return "white";
+  }
 }
