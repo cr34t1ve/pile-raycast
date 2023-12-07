@@ -27,15 +27,15 @@ export function CreatePostForm({ onCreate }: { onCreate: (content: string, highl
       }
     >
       <Form.TextArea id="content" title="What Are You Thinking?" autoFocus />
-      <Form.Dropdown id="highlight" title="Highlight" defaultValue="None">
+      <Form.Dropdown id="highlight" title="Highlight" defaultValue="none">
         {PostHighlights.map((highlight: HighlightI) => (
           <Form.Dropdown.Item
             key={highlight.highlight}
-            value={highlight.highlight || "None"}
-            title={highlight.highlight || "None"}
+            value={highlight.highlight}
+            title={highlight.highlight}
             icon={{
               source: Icon.CircleFilled,
-              tintColor: highlight.raycastColor,
+              tintColor: highlight.highlightColor === "transparent" ? "white" : highlight.highlightColor,
             }}
           />
         ))}

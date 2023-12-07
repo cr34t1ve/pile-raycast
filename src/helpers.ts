@@ -1,3 +1,5 @@
+import { PostHightlightsI } from "./utils/types";
+
 export function getFilePathForNewPost(basePath: string) {
   const date = new Date();
   const month = date.toLocaleString("default", { month: "short" });
@@ -31,12 +33,14 @@ export function getRelativeFilePath() {
 // calculate it based on the highlight type.
 export function renderHighlightColor(highlight: string) {
   switch (highlight) {
-    case "Do later":
+    case PostHightlightsI.DoLater:
       return "#4de64d";
-    case "Highlight":
+    case PostHightlightsI.Highlight:
       return "#FF703A";
-    case "New idea":
+    case PostHightlightsI.NewIdea:
       return "#017AFF";
+    case PostHightlightsI.None:
+      return "white";
     default:
       return "white";
   }
